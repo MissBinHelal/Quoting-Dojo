@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Quoting Dojo</title>
+</head>
+<body>
+    <form action="/record" method="POST">
+       your name: <input class="form-control form-control-sm" type="text" id="name" placeholder="your name">
+       your quote <input class="form-control form-control-lg" type="text" id="quote" placeholder="quote">
+       <button type="submit" class="btn btn-primary">Add the qoute</button>
+       <a href="/views/quote.ejs"><button type="submit" class="btn btn-primary"> go to qoutes</button></a>
+
+    </form>
+</body>
+<% if(typeof(errors) != 'undefined' ) { %>
+    <span style="color: red">Something went wrong</span>
+    <p><%= errors%></p>
+    <% for (var x in errors) { %>
+     <h3><%= errors[x].quote %></h3>
+    <% } %>
+<% } %>
+</html>
